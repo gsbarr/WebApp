@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// UN DAO (Data Object) es la clase que realiza consultas al modelo y realiza operaciones sobre los datos
+
 @Repository
 @Transactional
 public class UsuarioDaoImp implements UsuarioDao {
