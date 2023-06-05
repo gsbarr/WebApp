@@ -1,0 +1,6 @@
+com\WebApp\WebApp\controller\UsuarioController.class
+com\WebApp\WebApp\dao\UsuarioDaoImp.class
+com\WebApp\WebApp\models\Usuario.class
+com\WebApp\WebApp\ServletInitializer.class
+com\WebApp\WebApp\WebAppApplication.class
+com\WebApp\WebApp\dao\UsuarioDao.class
