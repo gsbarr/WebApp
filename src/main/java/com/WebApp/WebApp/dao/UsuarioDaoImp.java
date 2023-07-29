@@ -23,8 +23,21 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public List<Usuario> getUsuario(int id) {
+    public List<Usuario> getLista() {
         String query = "FROM Usuario";  // OJO!!! Acá va la CLASE del modelo, NO la tabla
         return entityManager.createQuery(query).getResultList();
     }
+
+    @Override
+    public void eliminar(int id) {
+        Usuario user = entityManager.find(Usuario.class, id);
+        entityManager.remove(user);
+    }
+
+    @Override
+    public List<Usuario> getUsuario(int id) {
+        return null;
+    }
+
 }
+

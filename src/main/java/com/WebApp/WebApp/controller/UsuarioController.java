@@ -16,6 +16,8 @@ public class UsuarioController  {
 
     @Autowired  //Inyección de dependencias
     private UsuarioDaoImp  user;
+
+    // Para crear un usuario
     @RequestMapping(value = "api/crear")
     public Usuario crearUsuario() {
         Usuario u1 = new Usuario();
@@ -25,9 +27,21 @@ public class UsuarioController  {
         return u1;
     }
 
-    @RequestMapping(value = "api/obtener/{id}", method = RequestMethod.GET)
-    public List<Usuario> getUsuario(@PathVariable int id) {
+    // Para obtener un unico usuario por ID
+    @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.GET)
+    public List<Usuario> obtUserId(@PathVariable int id) {
         return user.getUsuario(id);
+    }
+
+    // Para obtener lista total de usuarios
+    @RequestMapping(value = "api/usuarios/listaUser", method = RequestMethod.GET)
+    public List<Usuario> listaUser() {
+        return user.getLista();
+    }
+
+    @RequestMapping(value = "api/usuarios/del/{id}", method = RequestMethod.DELETE)
+    public void eliminar(@PathVariable int id) {
+        //usuarioDao.eliminar(int id);
     }
 
 }

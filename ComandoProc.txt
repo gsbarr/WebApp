@@ -1,0 +1,8 @@
+//primero buscamos el proceso que nos molesta
+
+netstat -ano | findstr LISTENING | findstr 8080
+
+
+//luego lo eliminamos:
+
+taskkill -PID 11276 -F  

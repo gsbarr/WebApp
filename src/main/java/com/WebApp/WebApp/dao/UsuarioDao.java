@@ -10,4 +10,7 @@ public interface UsuarioDao {
     Usuario crearUsuario();
     List<Usuario> getUsuario(@PathVariable int id);
 
+    List<Usuario> getLista();
+
+    void eliminar(int id);
 }
