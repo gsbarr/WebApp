@@ -1,9 +1,13 @@
 $(document).ready(function(){
     //user = crearUsuario();
 
+    
     lista = listarUsuarios();
 
-    //$('#datatablesSimple').DataTable(); //Hacer andar esto
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple);
+    }
 
 });
 
@@ -65,7 +69,7 @@ async function listarUsuarios() {
         console.log("Llenamos la lista");
         
         const tabla = document.querySelector("#datatablesSimple tbody");
-        tabla.innerHTML = "";
+        //tabla.innerHTML = "";
     
         lista.forEach(usuario => {
     
