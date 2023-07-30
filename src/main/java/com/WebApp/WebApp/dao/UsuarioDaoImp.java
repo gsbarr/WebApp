@@ -35,6 +35,11 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
+    public void registrar(Usuario u) {
+        entityManager.merge(u);
+    }
+
+    @Override
     public List<Usuario> getUsuario(int id) {
         return null;
     }

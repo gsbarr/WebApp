@@ -23,14 +23,18 @@ async function crearUsuario() {
        }
      });
     const usuario = await respuesta.json();
-console.log("contenido usuario");
-console.log(JSON.stringify(usuario));
-document.write(JSON.stringify(usuario));
+    console.log("contenido usuario");
+    console.log(JSON.stringify(usuario));
+
     // aca pondriamos la logica que llena la pagina
+
+    //devolvemos algún valor
     return usuario;
 }
 
 
+// Función que pide a la API la lista de usuarios total
+// y la carga en la tabla
 async function listarUsuarios() {
 
     //let listaUsuarios = [];
