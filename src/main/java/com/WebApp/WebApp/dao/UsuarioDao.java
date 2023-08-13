@@ -9,7 +9,7 @@ import java.util.List;
 public interface UsuarioDao {
 
     Usuario crearUsuario();
-    List<Usuario> getUsuario(@PathVariable int id);
+    Usuario getUsuario(@PathVariable int id) ;
 
     List<Usuario> getLista();
 

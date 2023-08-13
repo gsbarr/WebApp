@@ -1,12 +1,15 @@
 package com.WebApp.WebApp.dao;
 
 import com.WebApp.WebApp.models.Usuario;
+import com.WebApp.WebApp.repositories.UsuarioRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 // UN DAO (Data Object) es la clase que realiza consultas al modelo y realiza operaciones sobre los datos
 
@@ -16,6 +19,9 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+    @Autowired
+    private UsuarioRepository usuarioRepo;
+
     @Override
     public Usuario crearUsuario() {
         //String query = "";
@@ -40,8 +46,15 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public List<Usuario> getUsuario(int id) {
-        return null;
+    public Usuario getUsuario(int id) {
+
+            // Una variable Optional contempla que pueda ser nula
+            // En este caso, la usamos porque quizás no exista usuario que coincida con el ID
+            Optional<Usuario> us = usuarioRepo.findById(id);
+            // Optional.get() devuelve el valor si existe, y devuelve una excepción si no existe
+            return us.get();
+
+
     }
 
 }

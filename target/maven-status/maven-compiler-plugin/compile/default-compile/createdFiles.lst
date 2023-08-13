@@ -1,5 +1,8 @@
+com\WebApp\WebApp\repositories\UsuarioRepository.class
+com\WebApp\WebApp\models\Domicilio.class
 com\WebApp\WebApp\controller\UsuarioController.class
 com\WebApp\WebApp\models\Usuario.class
+com\WebApp\WebApp\models\Provincia.class
 com\WebApp\WebApp\dao\UsuarioDaoImp.class
 com\WebApp\WebApp\ServletInitializer.class
 com\WebApp\WebApp\WebAppApplication.class

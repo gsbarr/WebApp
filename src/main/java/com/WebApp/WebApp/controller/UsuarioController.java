@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UsuarioController  {
 
     @Autowired  //Inyección de dependencias
@@ -32,7 +33,7 @@ public class UsuarioController  {
 
     // Para obtener un unico usuario por ID
     @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.GET)
-    public List<Usuario> obtUserId(@PathVariable int id) {
+    public Usuario obtUserId(@PathVariable int id) {
         return user.getUsuario(id);
     }
 

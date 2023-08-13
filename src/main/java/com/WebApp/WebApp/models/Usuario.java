@@ -17,6 +17,11 @@ public class Usuario {
     @Column(name = "password")
     private String password;
 
+    // Columna obtenida por relación con otra tabla
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_domicilio")
+    private Domicilio domicilio;
+
     public String getNombre() {
         return nombre;
     }
@@ -48,4 +53,5 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
