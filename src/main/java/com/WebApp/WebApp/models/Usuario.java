@@ -22,6 +22,14 @@ public class Usuario {
     @JoinColumn(name = "fk_domicilio")
     private Domicilio domicilio;
 
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
+
     public String getNombre() {
         return nombre;
     }

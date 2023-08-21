@@ -48,17 +48,21 @@ function crearUser(){
     datos.nombre = inputNombre.value;
     datos.dni = inputDNI.value;
     datos.password = inputPassword.value;
+    // ID del domicilio
+    datos.fk_domicilio = 1;
+
+    console.log(JSON.stringify(datos));
 
     console.log("creando usuario... ");
     // Petición HTTP
     try{   
-        respuesta = fetch('api/usuarios', {
+        respuesta = fetch('http://localhost:8080/api/usuarios', {
             method: 'POST', //metodo HTTP
             headers: {   //aca decimos que devuelve un JSON
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(datos)     //Acá van los datos del registro    
+            body: JSON.stringify(datos)     //Acá van los datos del registro
         })
         .then(response => {
             codigoResp = response.status;

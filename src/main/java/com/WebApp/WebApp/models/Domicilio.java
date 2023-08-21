@@ -16,6 +16,14 @@ public class Domicilio {
     @JoinColumn(name = "fk_provincia")
     private Provincia provincia;
 
+    public Provincia getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(Provincia provincia) {
+        this.provincia = provincia;
+    }
+
     public int getId() {
         return id;
     }

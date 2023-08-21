@@ -1,5 +1,6 @@
 package com.WebApp.WebApp.dao;
 
+import com.WebApp.WebApp.models.Domicilio;
 import com.WebApp.WebApp.models.Usuario;
 import com.WebApp.WebApp.repositories.UsuarioRepository;
 import jakarta.persistence.EntityManager;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 // UN DAO (Data Object) es la clase que realiza consultas al modelo y realiza operaciones sobre los datos
@@ -41,8 +43,18 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public void registrar(Usuario u) {
-        entityManager.merge(u);
+    public void registrar(Map<String, String> u) {
+        // Preparamos el objeto
+        Usuario nuevoU = new Usuario();
+        //Buscamos domicilio
+        Domicilio dom = entityManager.find(Domicilio.class, u.get("fk_domicilio"));
+
+        nuevoU.setNombre(u.get("nombre"));
+        nuevoU.setDni(u.get("dni"));
+        nuevoU.setPassword(u.get("password"));
+        nuevoU.setDomicilio(dom);
+
+        entityManager.merge(nuevoU);
     }
 
     @Override
