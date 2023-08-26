@@ -31,17 +31,11 @@ public class UsuarioController  {
 
     // Para crear un usuario
     @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
-    public ResponseEntity<String> registrarUsuario(@RequestBody Map<String, String> nuevoU) {
-
+    public String registrarUsuario(@RequestBody Map<String, String> nuevoU) {
         //Creamos usuario
         user.registrar(nuevoU);
 
-        //Devolvemos una respuesta vacía (para habilitar el CORS)
-        HttpHeaders responseHeaders = new HttpHeaders();
-        //responseHeaders.set("Access-Control-Allow-Methods", "GET, POST, PUT");
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        responseHeaders.set("Access-Control-Allow-Headers", "Content-Type");
-        return new ResponseEntity<String>("Usuario creado", responseHeaders, HttpStatus.OK);
+        return "Usuario creado";
 
     }
 
@@ -53,11 +47,8 @@ public class UsuarioController  {
 
     // Para obtener lista total de usuarios
     @RequestMapping(value = "api/usuarios/listaUser", method = RequestMethod.GET)
-    public ResponseEntity<List<Usuario>> listaUser() {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        //responseHeaders.setLocation(location);
-        responseHeaders.set("Access-Control-Allow-Origin", "*");
-        return new ResponseEntity<List<Usuario>>(user.getLista(), responseHeaders, HttpStatus.OK);
+    public List<Usuario> listaUser() {
+        return user.getLista();
     }
 
     @RequestMapping(value = "api/usuarios/del/{id}", method = RequestMethod.DELETE)

@@ -7,3 +7,4 @@ com\WebApp\WebApp\dao\UsuarioDaoImp.class
 com\WebApp\WebApp\ServletInitializer.class
 com\WebApp\WebApp\WebAppApplication.class
 com\WebApp\WebApp\dao\UsuarioDao.class
+com\WebApp\WebApp\Utilidades.class
